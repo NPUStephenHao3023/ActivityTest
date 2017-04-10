@@ -1,2 +1,0 @@
-# ActivityTest
-AndroidLearning_Activity
