@@ -14,5 +14,15 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("BaseActivity",getClass().getSimpleName());
+        //将正在创建的活动添加到活动管理器中
+        ActivityCollector.addActivity(this);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //将一个要销毁的活动从活动管理器中移除
+        ActivityCollector.removeActivity(this);
     }
 }
