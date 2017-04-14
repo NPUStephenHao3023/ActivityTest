@@ -19,7 +19,9 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity","Task id is "+ getTaskId());
         setContentView(R.layout.first_layout);
+
 
 
         //(Button) findViewById 是向下转型
@@ -75,8 +77,13 @@ public class FirstActivity extends AppCompatActivity {
 
 //                startActivityForResult()方法接收两个参数，第一个参数还是 Intent，第二个参数是请求
 //                码，用于在之后的回调中判断数据的来源:请求码只要是一个唯一值就可以了
+
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivityForResult(intent,1);
+
+
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivityForResult(intent,1);
+                startActivity(intent);
             }
 
         });
@@ -123,5 +130,12 @@ public class FirstActivity extends AppCompatActivity {
                 break;
             default:
         }
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity","OnReStart");
     }
 }

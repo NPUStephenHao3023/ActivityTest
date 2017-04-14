@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +16,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SecondActivity","Task id is " + getTaskId());
         setContentView(R.layout.second_layout);
 
 
@@ -35,18 +37,22 @@ public class SecondActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
+//                Intent intent = new Intent();
 //                构建了一个 Intent，只不过这个 Intent 仅仅是用于传递数据而已，
 //            它没有指定任何的“意图” 。紧接着把要传递的数据存放在 Intent 中，
-                intent.putExtra("data_return","Hello FirstActivity");
+//                intent.putExtra("data_return","Hello FirstActivity");
 
 //                setResult()方法接收两个
 //                参数 ，第 一个 参数 用于 向上一 个活 动返 回处 理结果 ，一 般只 使用 RESULT_OK 或
 //                RESULT_CANCELED 这两个值，第二个参数则是把带有数据的 Intent 传递回去，然后调用
 //                了 finish()方法来销毁当前活动。
+//
+//                setResult(RESULT_OK,intent);
+//                finish();
 
-                setResult(RESULT_OK,intent);
-                finish();
+
+                Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -62,5 +68,12 @@ public class SecondActivity extends AppCompatActivity {
         intent.putExtra("data_return","Hello FirstActivity");
         setResult(RESULT_OK,intent);
         finish();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Second","onDestroy");
     }
 }
