@@ -81,8 +81,11 @@ public class FirstActivity extends BaseActivity {
 //                startActivityForResult(intent,1);
 
 
-                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivity(intent);
+
+
+                SecondActivity.actionStart(FirstActivity.this,"data1","data2");
             }
 
         });

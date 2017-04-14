@@ -1,5 +1,6 @@
 package com.example.activitytest;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -75,5 +76,13 @@ public class SecondActivity extends BaseActivity {
         super.onDestroy();
         //Log.d(String tag,String msg);tag是打印出来的标签名字
         Log.d("SecondActivity","onDestroy");
+    }
+
+
+    public static void actionStart(Context context,String data1,String data2){
+        Intent intent = new Intent(context,SecondActivity.class);
+        intent.putExtra("param1",data1);
+        intent.putExtra("param2",data2);
+        context.startActivity(intent);
     }
 }
