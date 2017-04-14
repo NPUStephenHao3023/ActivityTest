@@ -3,7 +3,6 @@ package com.example.activitytest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import android.widget.Button;
  * Created by acer on 2017/4/8.
  */
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +73,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("Second","onDestroy");
+        //Log.d(String tag,String msg);tag是打印出来的标签名字
+        Log.d("SecondActivity","onDestroy");
     }
 }

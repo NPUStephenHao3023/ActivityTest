@@ -2,7 +2,6 @@ package com.example.activitytest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +13,7 @@ import android.widget.Toast;
  * Created by acer on 2017/4/8.
  */
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState){
 
